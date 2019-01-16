@@ -335,6 +335,8 @@ and look at the client request headers.)
   </blockquote></p>
 </details>
 
+
+
 To fix this, we have to tell `curl` to store any relevant cookies the
 server sends, so it knows to include them with future requests to that
 server.
@@ -370,6 +372,8 @@ request headers) and the server now thinks you are logged in.
   for both operations are known only to the server.
   </blockquote></p>
 </details>
+
+
 
 To summarize: the only way the server can "keep track" of the same
 client is by setting a cookie when the client first visits, 
