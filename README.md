@@ -240,7 +240,8 @@ window where `nc` is listening.
   <summary>
 How is the information you entered
 into the form presented to the server?  What tasks would a SaaS
-framework like Sinatra or Rails need to do to present 
+framework like Sinatra or Rails need to do to present this information
+in a convenient format to a SaaS app written in, say, Ruby? 
   </summary>
   <p><blockquote>
   The form contents are presented as a long string of the form
@@ -296,15 +297,15 @@ use with `curl`.
 
 <details>
   <summary>
-  Try the first two `GET` operations above.  The body of the response
+  Try the first two <code>GET</code> operations above.  The body of the response
   for the first one should be "Logged in: false", and for the second
   one "Login cookie set."  What are the differences in the response
   _headers_ that indicate the second operation is setting a cookie?
-  (Hint: use `curl -v`, which will display both the request headers
+  (Hint: use <code>curl -v</code>, which will display both the request headers
   and the response headers and body, along with other debugging information.)
   </summary>
   <p><blockquote>
-  The second operation should include in the headers `Set-Cookie:`
+  The second operation should include in the headers <code>Set-Cookie:</code>
   followed by a string that is the value of the cookie to be set.  A
   browser would automatically grab this value and store it as one of
   the cookies to be sent whenever this site is re-revisisted.  (But
@@ -319,8 +320,8 @@ use with `curl`.
 <details>
   <summary>
 OK, so now you are supposedly "logged in" because the server set a
-cookie indicating this.  Yet if you now try `GET /` again, it will
-still say "Logged in: false".  What's going on?  (Hint: use `curl -v`
+cookie indicating this.  Yet if you now try <code>GET /</code> again, it will
+still say "Logged in: false".  What's going on?  (Hint: use <code>curl -v</code>
 and look at the client request headers.)
   </summary>
   <p><blockquote>
@@ -328,7 +329,7 @@ and look at the client request headers.)
    remember the cookie and pass it back to the server as part of the
    headers whenever that same site is visited.   Browsers do this
    automaticaly (unless you have disabled cookies in the preferences),
-   but `curl` won't do this
+   but <code>curl</code> won't do this
    without explicit instructions.  The server isn't seeing the cookie
    as part of subsequent requests, so it can't identify you.
   </blockquote></p>
@@ -354,8 +355,8 @@ request headers) and the server now thinks you are logged in.
 
 <details>
   <summary>
-  Looking at the `Set-Cookie` header or the contents of the
-  `cookies.txt` file, it seems like you could have easily created this
+  Looking at the <code>Set-Cookie</code> header or the contents of the
+  <code>cookies.txt</code> file, it seems like you could have easily created this
   cookie and just forced the server to believe you are logged in.  In
   practice, how do servers avoid this insecurity?
   </summary>
@@ -374,7 +375,7 @@ To summarize: the only way the server can "keep track" of the same
 client is by setting a cookie when the client first visits, 
 relying on the client to include that cookie in the headers on
 subsequent visits, and if the server modifies the cookie during the
-session (by including additional `Set-Cookie` headers), relying on the
+session (by including additional <code>Set-Cookie</code> headers), relying on the
 client to remember those changes as well.  In this way, even though
 HTTP itself is stateless (every request independent of every other),
 the app can internally maintain the notion of "session state" for each
