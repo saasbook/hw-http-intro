@@ -2,21 +2,17 @@
 
 ## Learning Goals
 
+
+* Use the command-line utilities `curl` and `nc` to experiment with
+and learn about HTTP and cookies
+
 * Understand the basics of how HTTP requests and responses are
 constructed, and the interaction between a SaaS client and server
 using HTTP
 
-* Understand what an HTTP redirect is and when it occurs
-
 * Understand some of the most common HTTP error codes and what they mean
 
 * Understand how cookies are managed between clients and servers
-
-* Understand how a request body can be used to submit information such as
-the contents of fill-in form from a client to a server
-
-* Use the command-line utilities `curl` and `nc` to experiment with
-and learn about HTTP and cookies
 
 ## Setup
 
