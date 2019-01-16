@@ -30,11 +30,11 @@ act as a SaaS server.
 We will also be working with two real web sites:
 [Watchout4snakes](http://watchout4snakes.com), a handy random-word
 generator that will also be featured in a future assignment; and
-[HTTPbin](https://httpbin.org), a site specifically designed to help
-test HTTP clients.
+a simple [cookie demo site](https://github.com/saasbook/simple-cookie-demo)
+written just for this assignment and deployed on Heroku.
 
-Start by visiting each of these in your favorite browser and poke
-around a bit to get a "user's view" of what's on each site.
+Start by visiting Watchout4snakes in your favorite browser 
+to get a "user's view" of what's on the front page.
 
 ## Learning goal: understand basic parts of an HTTP request and response
 
