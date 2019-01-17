@@ -81,8 +81,8 @@ Tell Netcat to listen on port 8081: `nc -l 8081`
 <details>
   <summary>
   Assuming you're running curl from another shell
-  on the same C9 workspace, what URL will you have to pass to Curl to try to access your fake
-  server, and why?  
+  (on the same C9 workspace, if applicable), what URL will you have to 
+    pass to Curl to try to access your fake server, and why?  
   </summary>
   <p><blockquote>
   http://localhost:8081 is the URL.  Localhost always means "this same
@@ -195,7 +195,7 @@ parsing and pre-digesting such form data in order to make it
 conveniently available to your app, it is worth understanding what
 that data normally looks like before such processing.
 
-Once again, start `nc -l 8081` to listen on port 8081 in Cloud9.
+Once again, start `nc -l 8081` to listen on port 8081.
 
 Create and save (ideally with extension `.html`) the following minimal
 file on your own computer:
@@ -219,17 +219,19 @@ file on your own computer:
 <details>
   <summary>
 An HTML form when submitted generates an HTTP `POST` request from the
-browser.  In order to reach your fake server on Cloud9, with what URL
-should you replace FAKE-SERVER-URL-HERE in the above file?
+browser.  In order to reach your fake server (on Cloud9, if applicable)
+, with what URL should you replace FAKE-SERVER-URL-HERE in the above file?
   </summary>
   <p><blockquote>
-  As before, `http://your-workspace-name.c9users.io:8081` will do.
+  As before, `http://localhost:8081` 
+  (or `http://your-workspace-name.c9users.io:8081` for Cloud9 users) 
+  will do.
   </blockquote></p>
 </details>
 
 Modify the file, open it in your computer's Web browser, fill in some
-values in the form, and submit it.  Now go to Cloud9 and look at the
-window where `nc` is listening.  
+values in the form, and submit it.  Now go to your terminal and look 
+at the window where `nc` is listening.  
 
 
 <details>
