@@ -45,14 +45,15 @@ the Unix shell if they're not protected by single quotes.)
 
 1.  Save the contents of the above `curl` command to a file and view
 the file as a browser would render it.  Hint 1: adding
-`>filename` to a shell command redirects the command's output to be
-stored in that file.  Hint 2: if you save files in your Cloud9
-workspace, they'll appear in the "file explorer" down the left-hand
-side; you can then open the file in the editor, and click "Preview" in
-the top nav bar to open that specific file in a preview web browser
-built into Cloud9.  When the preview browser appears, you can also
-click its "pop out" tab to make the preview browser open in its own
-window.
+`> filename` to a shell command redirects the command's output to be
+stored in that file (naming your output file with a .html file extension 
+may make it easier to render the file in a browser).  Hint 2: if you save 
+files in your Cloud9 workspace, they'll appear in the "file explorer" 
+down the left-hand side; you can then open the file in the editor, and 
+click "Preview" in the top nav bar to open that specific file in a 
+preview web browser built into Cloud9.  When the preview browser 
+appears, you can also click its "pop out" tab to make the preview 
+browser open in its own window.
 
 
 <details>
@@ -278,13 +279,13 @@ help you experiment with cookies.  The curious can see the
 
 This app only supports two routes: 
 
+* `GET /` returns a text string saying whether the user is logged in or
+not.
+
 * `GET /login` returns a response that instructs the browser to set a
 cookie.  The cookie contents are set by the app to  indicate the user
 has logged in.  (In a real app, the server would run some code that
 verifies a username/password pair or similar.)
-
-* `GET /` returns a text string saying whether the user is logged in or
-not.
 
 This app lives at `http://esaas-cookie-demo.herokuapp.com` but it
 only serves up text strings, not HTML pages.  Boring, but great for
