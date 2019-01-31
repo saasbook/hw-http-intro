@@ -46,7 +46,9 @@ the Unix shell if they're not protected by single quotes.)
 1.  Save the contents of the above `curl` command to a file and view
 the file as a browser would render it.  Hint 1: adding
 `>filename` to a shell command redirects the command's output to be
-stored in that file.  Hint 2: if you save files in your Cloud9
+stored in that file.  Hint 2-1: if you work locally, you can store the content
+into a file with an extension .html and open the created file with your brower.
+Hint 2-2: if you save files in your Cloud9
 workspace, they'll appear in the "file explorer" down the left-hand
 side; you can then open the file in the editor, and click "Preview" in
 the top nav bar to open that specific file in a preview web browser
