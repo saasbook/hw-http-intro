@@ -14,6 +14,14 @@ using HTTP
 
 * Understand how cookies are managed between clients and servers
 
+## Prerequisites
+
+You will need to know how to open a _terminal_ or _shell_ window in
+your computing environment, and how to view and edit files.
+Throughout this exercise, we will refer to this window as the shell
+window; the commands you type at its prompt are shell commands, that
+is, they tell the shell to run a program and display the output.
+
 ## Setup
 
 In the beginning was the command line, and that's where we'll be for
@@ -43,19 +51,18 @@ them with `curl`, because URIs will often have special characters in
 them, such as `?` or `#`, that would be interpreted in special ways by
 the Unix shell if they're not protected by single quotes.)
 
-1.  Save the contents of the above `curl` command to a file and view
+Save the contents of the above `curl` command to a file and view
 the file as a browser would render it.  Hint 1: adding
-`>filename` to a shell command redirects the command's output to be
-stored in that file.  Hint 2-1: if you work locally, you can store the content
-into a file with an extension .html and open the created file with your brower.
-Hint 2-2: if you save files in your Cloud9
-workspace, they'll appear in the "file explorer" down the left-hand
-side; you can then open the file in the editor, and click "Preview" in
-the top nav bar to open that specific file in a preview web browser
-built into Cloud9.  When the preview browser appears, you can also
-click its "pop out" tab to make the preview browser open in its own
-window.
-
+`>filename` to the end of a shell command line causes the command's output to be
+stored in that file rather than displayed in the terminal window.  
+Hint 2: if you are saving files on your own computer's hard drive,
+store the command output
+in a file with an extension .html and open the created file with your browse.
+Hint 3: if you are using a Web-based IDE (integrated development
+environment) such as Cloud9, Codio, CodeAnywhere, Codenvy, etc., when
+you create or save files they usually appear in a "file explorer" down the left-hand
+side; you can usually open files in the editor by clicking or
+double-clicking on the file's name in that view.
 
 <details>
   <summary>
@@ -80,6 +87,10 @@ greater would be legal, but if you're using Cloud9, the only
 
 Tell Netcat to listen on port 8081: `nc -l 8081`
 
+(As with most Unix command-line programs, you can say `nc --help` to
+get a listing of other options, or `man nc` to view its detailed
+"manual page.")
+
 <details>
   <summary>
   Assuming you're running curl from another shell
@@ -87,10 +98,12 @@ Tell Netcat to listen on port 8081: `nc -l 8081`
     pass to Curl to try to access your fake server, and why?  
   </summary>
   <p><blockquote>
-  http://localhost:8081 is the URL.  Localhost always means "this same
+  <code>http://localhost:8081</code> is the URL.  Localhost always means "this same
   machine" and 8081 is the port number.  Without the port number, the
   default would be 80, which is the IANA default port for Web servers
-  (or 443 for HTTPS-secured servers).
+  (or 443 for HTTPS-secured servers).  You could also use localhost's
+  special IP
+  address directly: <code>http://127.0.0.1:8081</code> would also work.
   </blockquote></p>
 </details>
 
@@ -104,7 +117,7 @@ server will receive the HTTP client request.
   to retrieve.  Why don't you see `http://localhost:8081` anywhere on that line?
   </summary>
   <p><blockquote>
-  That part of the URL tells the browser (or other client) which
+  The hostname part of the URL tells the browser (or other client) which
   protocol to use (HTTP) and which server and port to contact
   (port 8081 on localhost).
   Once the server is contacted, the client just needs to tell it the
@@ -114,7 +127,7 @@ server will receive the HTTP client request.
 
 Make a note
 of which headers you see: this is how a real Web server perceives a
-connection from curl.  
+connection from `curl`.
 
 Now that you've seen what an HTTP request looks like from the server's
 point of view, let's see what the response looks like from the
@@ -167,7 +180,7 @@ display BOTH  the server's response headers AND then the response body.
 What other HTTP error codes exist?  Use Wikipedia or another resource
 to learn the meanings of some of the most common:  200, 301, 302, 400,
 404, 500.  Note that these are "families" of statuses: all 2xx
-statuses mean "it worked", all 3xx are "redirect", and so on.  
+statuses mean "it worked", all 3xx are "redirect", and so on.
 
 
 <details>
@@ -181,7 +194,7 @@ statuses mean "it worked", all 3xx are "redirect", and so on.
   the app server crashed, or the SaaS app running on the server raised
   an unhandled exception--that the HTTP server layer, which just
   handles traffic to and from the app, had to take over and say
-  "Sorry, the app is too hosed to inform you that it's hosed."
+  "Sorry, the app is too hosed to even tell you that it's hosed."
   </blockquote></p>
 </details>
 
@@ -221,8 +234,9 @@ file on your own computer:
 <details>
   <summary>
 An HTML form when submitted generates an HTTP `POST` request from the
-browser.  In order to reach your fake server (on Cloud9, if applicable)
-, with what URL should you replace FAKE-SERVER-URL-HERE in the above file?
+browser.  In order to reach your fake server (on Cloud9, if
+applicable), 
+with what URL should you replace FAKE-SERVER-URL-HERE in the above file?
   </summary>
   <p><blockquote>
   As before, `http://localhost:8081` 
