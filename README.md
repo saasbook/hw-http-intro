@@ -278,13 +278,13 @@ help you experiment with cookies.  The curious can see the
 
 This app only supports two routes: 
 
+* `GET /` returns a text string saying whether the user is logged in or
+not.
+
 * `GET /login` returns a response that instructs the browser to set a
 cookie.  The cookie contents are set by the app to  indicate the user
 has logged in.  (In a real app, the server would run some code that
 verifies a username/password pair or similar.)
-
-* `GET /` returns a text string saying whether the user is logged in or
-not.
 
 This app lives at `http://esaas-cookie-demo.herokuapp.com` but it
 only serves up text strings, not HTML pages.  Boring, but great for
@@ -296,9 +296,12 @@ use with `curl`.
   Try the first two <code>GET</code> operations above.  The body of the response
   for the first one should be "Logged in: false", and for the second
   one "Login cookie set."  What are the differences in the response
-  _headers_ that indicate the second operation is setting a cookie?
+  <i>headers</i> that indicate the second operation is setting a cookie?
   (Hint: use <code>curl -v</code>, which will display both the request headers
-  and the response headers and body, along with other debugging information.)
+  and the response headers and body, along with other debugging
+  information.  <code>curl --help</code> will print voluminous help
+  for using cURL, and <code>man curl</code> will show the Unix "manual
+  page" for cURL on most systems.)
   </summary>
   <p><blockquote>
   The second operation should include in the headers <code>Set-Cookie:</code>
