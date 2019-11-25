@@ -3,12 +3,9 @@
 ## Learning Goals
 
 
-* Use the command-line utilities `curl` and `nc` to experiment with
-and learn about HTTP and cookies
+* Use the command-line utilities `curl` and `nc` to experiment with and learn about HTTP and cookies
 
-* Understand the basics of how HTTP requests and responses are
-constructed, and the interaction between a SaaS client and server
-using HTTP
+* Understand the basics of how HTTP requests and responses are constructed, and the interaction between a SaaS client and server using HTTP
 
 * Understand some of the most common HTTP error codes and what they mean
 
@@ -20,13 +17,9 @@ You will need to know how to open a _terminal_ or _shell_ window in your computi
 
 ## Setup
 
-In the beginning was the command line, and that's where we'll be for this intro to HTTP.  We will use two command-line
-tools. [cURL](https://en.wikipedia.org/wiki/CURL) (pronounced "curl") to act as a SaaS client, and
-[netcat](https://en.wikipedia.org/wiki/CURL) (pronounced "netcat") to act as a SaaS server.
+In the beginning was the command line, and that's where we'll be for this intro to HTTP.  We will use two command-line tools. [cURL](https://en.wikipedia.org/wiki/CURL) (pronounced "curl") to act as a SaaS client, and [netcat](https://en.wikipedia.org/wiki/CURL) (pronounced "netcat") to act as a SaaS server.
 
-We will also be working with two real web sites:
-[Watchout4snakes](http://watchout4snakes.com), a handy random-word generator that will also be featured in a future assignment; 
-and a simple [cookie demo site](https://github.com/saasbook/simple-cookie-demo) written just for this assignment and deployed on Heroku.
+We will also be working with two real web sites: [Watchout4snakes](http://watchout4snakes.com), a handy random-word generator that will also be featured in a future assignment; and a simple [cookie demo site](https://github.com/saasbook/simple-cookie-demo) written just for this assignment and deployed on Heroku.
 
 Start by visiting Watchout4snakes in your favorite browser to get a "user's view" of what's on the front page.
 
@@ -38,8 +31,7 @@ Save the contents of the above `curl` command to a file and view the file as a b
 
 Hint 1: adding `>filename` to the end of a shell command line causes the command's output to be stored in that file rather than displayed in the terminal window.
 
-Hint 2: if you are saving files on your own computer's hard drive,
-store the command output in a file with an extension .html and open the created file with your browse.
+Hint 2: if you are saving files on your own computer's hard drive, store the command output in a file with an extension .html and open the created file with your browse.
 
 Hint 3: if you are using a Web-based IDE (integrated development environment) such as Cloud9, Codio, CodeAnywhere, Codenvy, etc., when you create or save files they usually appear in a "file explorer" down the left-hand side; you can usually open files in the editor by clicking or double-clicking on the file's name in that view.
 
