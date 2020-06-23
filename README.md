@@ -34,7 +34,7 @@ Hint 1: adding `>filename` to the end of a shell command line causes the command
 Hint 2: Previewing file in a browser:
   | Local computer | Codio |
   |-----|------|
-  | If you are saving files on your own computer's hard drive, store the command output in a file with an extension .html and open the created file with your browse.   | When you create or save files they appear in a "file tree" down the left-hand side; you can open files in the editor by clicking or double-clicking on the file's name. To preview a file in a browser, right-click and select "Preview static" |
+  | If you are saving files on your own computer's hard drive, store the command output in a file with an extension .html and open the created file with your browser.   | When you create or save files they appear in a "file tree" down the left-hand side; you can open files in the editor by clicking or double-clicking on the file's name. To preview a file in a browser, right-click and select "Preview static" |
 
 <details><summary>  What are two main differences between the preview you see and what you saw in a "normal" Web browser? What explains these differences?  </summary>  <p><blockquote>  There is no picture and no visual styling of the page elements, because both the picture and the stylesheet (.css file) have to be loaded separately.  The HTTP request you made only loaded the main HTML file.  In a regular browser, the browser would automatically follow the links to download and display the image, and to download the stylesheet file and apply the styling information. </blockquote></p></details>
 
