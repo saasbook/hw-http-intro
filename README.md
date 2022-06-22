@@ -215,7 +215,7 @@ The following multiple choice questions can have MANY correct answers. Click on 
 <details><summary> It contains an HTTP response</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 <details><summary> There is no difference between the preview and the page on the browser</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 
-### Assuming you run the command `nc -l 5000` on a separate window, what command can you use to make HTTP requests to this server? Please type the full command, not just the URL.
+### Assuming you run the command `nc -l 5000` on a separate window, what command can you use to make HTTP requests to this server?
 <details><summary> <code>curl http://localhost:5000</code></summary><p><blockquote>Correct!</blockquote></p></details>
 <details><summary> <code>curl http://127.0.0.1:5000</code></summary><p><blockquote>Correct!</blockquote></p></details>
 <details><summary> <code>curl 'http://localhost:5000'</code></summary><p><blockquote>Correct!</blockquote></p></details>
