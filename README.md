@@ -173,4 +173,94 @@ To summarize: the only way the server can "keep track" of the same client is by 
 
 Disabling cookies in the client thwarts all of these behaviors, which is why most sites that require login (which is a stateful concept: you're logged in, or you're not), or which step you through a sequence of pages to do an operation (another stateful concept: which page of the flow are you currently on?  Which page should be shown next?) don't work properly if cookies are disabled in the browser.
 
+## Test Yourself!
+The following multiple choice questions can have MANY correct answers. Click on an answer's dropdown to check your understanding.
 
+### cURL acts as a Saas _____, and netcat acts as a Saas ______.
+<details><summary> client, server</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> server, client</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### What kinds of requests can you send to a server using cURL?
+<details><summary> <code>GET</code></summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> <code>DISPLAY</code></summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> <code>POST</code></summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> <code>DELETE</code></summary><p><blockquote>Correct!</blockquote></p></details>
+
+### The (Saas) server generates HTTP requests and the client sends HTTP responses.
+<details><summary> True</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> False</summary><p><blockquote>Correct!</blockquote></p></details>
+
+### HTTP ______s are received by the ______.
+<details><summary> request, client</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> request, server</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> response, client</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> response, server</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### The _____ generates an HTTP _____
+<details><summary> client, request</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> server, response</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> client, response</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> server, request</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### Which of the following statements are TRUE regarding making a request to a server using cURL vs. visiting the same URL with a browser?
+<details><summary> A cURL request can be made indistinguishable from a browser request</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> cURL can only be used for technical debugging</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> Browsers can receive more information in each response compared to cURL</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> Visual styles and images cannot be shown by curl but can be seen in a browser</summary><p><blockquote>Correct!</blockquote></p></details>
+
+### After running  `curl 'http://randomword.saasbook.info'`, you save the contents in an appropriate file and view the contents in a browser. Select all options that are TRUE about the preview that renders in the browser.
+<details><summary> It contains HTML elements</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> It contains an HTTP request</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> It shows the page content of "randomword.saasbook.info"</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> It contains an HTTP response</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> There is no difference between the preview and the page on the browser</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### Assuming you run the command `nc -l 5000` on a separate window, what command can you use to make HTTP requests to this server? Please type the full command, not just the URL.
+<details><summary> <code>curl http://localhost:5000</code></summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> <code>curl http://127.0.0.1:5000</code></summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> <code>curl 'http://localhost:5000'</code></summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> <code>curl 'http://127.0.0.1:5000'</code></summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> <code>curl "http://localhost:5000"</code></summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> <code>curl "http://127.0.0.1:5000"</code></summary><p><blockquote>Correct!</blockquote></p></details>
+
+### In which of the following would you see `HTTP/1.1 200 OK`?
+<details><summary> In HTTP response headers</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> In HTTP request headers</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> In HTTP response body</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> In HTTP request body</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### In which of the following would you see `GET / HTTP/1.1`?
+<details><summary> In HTTP response headers</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> In  HTTP request headers</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> In HTTP response body</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> In HTTP request body</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### It is the _____'s job to send Set-Cookie headers.
+<details><summary> Server</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> Client</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### It is the _____'s job to remember a cookie that has been sent in a Set-Cookie header.
+<details><summary> Server</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> Client</summary><p><blockquote>Correct!</blockquote></p></details>
+
+### What does it mean to say "HTTP is a stateless protocol"?
+<details><summary> The server does not 'remember' any information between any two requests</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> The browser does not distinguish between any two server responses</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> The browser should not store any information from the server</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### Disabling cookies in a browser prevents the server from generating them.
+<details><summary> True</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> False</summary><p><blockquote>Correct!</blockquote></p></details>
+
+### 4xx errors result from _____ side issues
+<details><summary> client</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> server</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+
+### 5xx errors result from _____ side issues. 
+<details><summary> client</summary><p><blockquote>Incorrect :(</blockquote></p></details>
+<details><summary> server</summary><p><blockquote>Correct!</blockquote></p></details>
+
+### If the client sends a `HTTP GET` request to a non-existing URI, the response header would have the code _____.
+<details><summary> 404</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> 4xx</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> 400s</summary><p><blockquote>Correct!</blockquote></p></details>
