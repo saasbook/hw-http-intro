@@ -246,10 +246,19 @@ The following multiple choice questions can have MANY correct answers. Click on 
 <details><summary> In HTTP response body</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 <details><summary> In HTTP request body</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 
-### Briefly explain what the response headers and the response body may contain. 
-<details><summary> Fixme: Response headers may contain the version of the HTTP protocol and the server's HTTP response code. It can also contain descriptions of the data like the timestamp, what server is sending the response, what the content type is, and headers that could set cookies.
-Response body may contain the resource that the client requested. If some sort of error occurs, the response body will be status info on the error.
-</summary><p><blockquote>Correct !</blockquote></p></details>
+### What MAY the response headers contain?
+<details><summary> The version of the HTTP protocol</summary><p><blockquote>Correct !</blockquote></p></details>
+<details><summary> The server's HTTP response code</summary><p><blockquote>Correct !</blockquote></p></details>
+<details><summary> Data such as descriptions of the data like the timestamp, what server is sending the response, what the content type is, and headers that could set cookies</summary><p><blockquote>Correct! These fields can be sent in headers, but are not necessary</blockquote></p></details>
+<details><summary> The resource the client requested</summary><p><blockquote>Incorrect. This would be found in the response body</blockquote></p></details>
+<details><summary> Status info on the error if an error occured</summary><p><blockquote>Incorrect. This would be found in the response body</blockquote></p></details>
+
+### What MAY the response body contain?
+<details><summary> The version of the HTTP protocol</summary><p><blockquote>Incorrect. This would be found in the response header</blockquote></p></details>
+<details><summary> The server's HTTP response code</summary><p><blockquote>Incorrect. This would be found in the response header</blockquote></p></details>
+<details><summary> Data such as descriptions of the data like the timestamp, what server is sending the response, what the content type is, and headers that could set cookies</summary><p><blockquote>Incorrect. These fields would be found in the response header</blockquote></p></details>
+<details><summary> The resource the client requested</summary><p><blockquote>Correct !</blockquote></p></details>
+<details><summary> Status info on the error if an error occured</summary><p><blockquote>Correct !</blockquote></p></details>
 
 ### What does <code>curl 'http://randomword.saasbook.info'</code> do and what is returned after the command is run?
 <details><summary> Prints the content sent back in the server request out to the terminal.</summary><p><blockquote>Correct!</blockquote></p></details>
@@ -266,9 +275,12 @@ Response body may contain the resource that the client requested. If some sort o
 <details><summary> Prints both the response headers then the response body out to the terminal.</summary><p><blockquote>Correct!</blockquote></p></details>
 <details><summary> Prints request headers, response headers, response body, and other debugging information to the terminal.</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 
-### Briefly explain what a request header must contain.
-<details><summary> Fixme: A request header must contain the type of request (GET/POST/etc.), which protocol to use, which server and port to contact, and the path the client wants to retrieve.
-</summary><p><blockquote>Correct !</blockquote></p></details>
+### What MUST a request header contain.
+<details><summary> The type of HTTP request (GET/POST/etc.)</summary><p><blockquote>Correct !</blockquote></p></details>
+<details><summary> Which protocol to use</summary><p><blockquote>Correct !</blockquote></p></details>
+<details><summary> Which server and port to contact</summary><p><blockquote>Correct !</blockquote></p></details>
+<details><summary> Which protocol to use</summary><p><blockquote>Correct !</blockquote></p></details>
+<details><summary> The path the client wants to retrieve</summary><p><blockquote>Correct !</blockquote></p></details>
 
 ### It is the _____'s job to send Set-Cookie headers.
 <details><summary> Server</summary><p><blockquote>Correct!</blockquote></p></details>
@@ -286,26 +298,15 @@ Response body may contain the resource that the client requested. If some sort o
 ### Briefly explain why HTTP being stateless determines how cookies work. Hint: think back to your responses of the above 3 questions. Describe why the roles must be distributed the way it is. Think about what would go wrong if the responsibilities were switched between the client and server.
 <details><summary> FIXME: HTTP does not store the state of user sessions, so it stores user data and uses cookies as keys so clients could simulate the user session experience without them actually being stored by the server. It is the user's job to store the cookies that the server generates and send them to the server when it makes request (if cookies are enabled). The server must process user's cookies and use them as keys to access the data that it stores for said user. If the user sends a request that should update a cookie, it is the server's responsibility to store the data tied to that request, and use the Set-Cookie header to set a cookie for the user to access the changed data that will be sent back with the server response. Since in HTTP every request is independent, it would make no sense for the server to store the cookies for a user because the server would be unable to remember a client's session between requests.</summary><p><blockquote>Correct!</blockquote></p></details>
 
-### Remember the following section from CHIP 3.3:
-This app only supports two routes: GET / returns a text string saying whether the user is logged in or not.
-GET /login returns a response that instructs the browser to set a cookie. The cookie contents are set by the app to indicate the user has logged in. (In a real app, the server would run some code that verifies a username/password pair or similar.) This app lives at http://esaas-cookie-demo.herokuapp.com but it only serves up text strings, not HTML pages. Boring, but great for use with curl. We run the following commands in order:
-curl -v http://esaas-cookie-demo.herokuapp.com/
-curl -v http://esaas-cookie-demo.herokuapp.com/login
-curl -v http://esaas-cookie-demo.herokuapp.com/
-In a few sentences, answer the following questions in your response:
-Does the server ever send back a cookie? If so, at which step? How can we tell?
-Is there a difference between the outcome of step (1) and (3) in terms of logging in? If so, what is different; if not, what is the issue?
-How can we change commands in steps (1) and (3) to make sure the cookies will be saved and transmitted appropriately? Do we need to make any changes to step (2)? Why or why not?
-Is the cookie now transmitted after your changes? If so, at which step? How can we tell?
-<details><summary> FIXME: The server sends back a cookie at step 2. We know this because the server's response has a Set-Cookie header. The outcome between step 1 and 3 does not change (they both say "Logged in: false". This is because browsers automatically store cookies, but curl does not. To store cookies with curl, could make step 2 "curl -i --cookie-jar cookies.txt http://esaas-cookie-demo.herokuapp.com/login"  (Links to an external site.)and step 3 "curl -v -b cookies.txt http://esaas-cookie-demo.herokuapp.com/" (Links to an external site.) this way we store the cookies in cookies.txt then use them on the next step so we as clients see the updates. If we make the changes to step 2 and 3, we see the changes after step 3 when the text changes to "Logged in: true".
-</summary><p><blockquote>Correct!</blockquote></p></details>
-
 ### Disabling cookies in a browser prevents the server from generating them.
 <details><summary> True</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 <details><summary> False</summary><p><blockquote>Correct!</blockquote></p></details>
 
-### Briefly explain the difference between a request sent from an incognito window and a regular browser window under identical conditions. What will be the impact of this difference on the response received? Compare this to what would happen if cookies were disabled all together.
-<details><summary> FIXME: A request sent from an incognito window does not send cookies, while a regular browser can. This means the incognito window doesn't simulate session states while a regular browser does. Incognito mode does not save your search history but a regular browser does. If cookies were completely disabled, a regular browser would still save your search history.</summary><p><blockquote>Correct!</blockquote></p></details>
+# Which of the following are true when comparing requests sent from an incognito widow and a regular browser window under identical conditions
+<details><summary> A request sent from an incognito window does not send cookies, while a regular browser can</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> The incognito window doesn't simulate session states while a regular browser does</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> Incognito mode does not save your search history but a regular browser does</summary><p><blockquote>Correct!</blockquote></p></details>
+<details><summary> If cookies were completely disabled, a regular browser would still save your search history</summary><p><blockquote>Correct!</blockquote></p></details>
 
 ### Briefly explain how an HTML form is submitted to a server. What happens when the submit button is clicked and what is the role of a web framework like Rails or Sinatra in handling form submissions?
 <details><summary> A HTML form is sent to the server using a POST request. When the submit button is clicked, headers with information about the data is sent to the server and the server processes it and stores it if no errors occur.</summary><p><blockquote>Correct!</blockquote></p></details>
@@ -313,11 +314,11 @@ Is the cookie now transmitted after your changes? If so, at which step? How can 
 ### Can an HTML form be submitted using GET instead of POST? If yes, what is the difference in how the server sees those requests? How do you control which HTTP method is invoked in an HTML form?
 <details><summary> FIXME</summary><p><blockquote>Correct!</blockquote></p></details>
 
-### 4xx errors result from _____ side issues
+### 4xx errors result from _____ side issues.
 <details><summary> client</summary><p><blockquote>Correct!</blockquote></p></details>
 <details><summary> server</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 
-### 5xx errors result from _____ side issues. 
+### 5xx errors result from _____ side issues.
 <details><summary> client</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 <details><summary> server</summary><p><blockquote>Correct!</blockquote></p></details>
 
