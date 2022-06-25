@@ -202,8 +202,15 @@ The following multiple choice questions can have MANY correct answers. Click on 
 <details><summary> client, response</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 <details><summary> server, request</summary><p><blockquote>Incorrect :(</blockquote></p></details>
 
-### Briefly explain a successful request-response dynamic (A sends B, C receives D etc) step by step in correct order. Start with how the connection between client and server is set. Do not list commands, describing steps is sufficient to show your understanding. Instead of typing nc -l 8081, say "___ is listening on port 8081", filling in the blank with the appropriate word. Hint: this should be the first step.
-<details><summary> FIXME</summary><p><blockquote>Correct!</blockquote></p></details>
+### Select from the following the steps of a successful rails request-response dynamic in the correct order:
+<details><summary> The browser loads the page for the user to see</summary><p><blockquote>Step 8</blockquote></p></details>
+<details><summary> The Rails router (config/routes.rb) recieves the request and maps the URL to its corresponding controller and action to be handled</summary><p><blockquote>Step 2</blockquote></p></details>
+<details><summary> The request is sent to the controller action, which then uses the request to ask the model to fetch data from the database</summary><p><blockquote>Step 3</blockquote></p></details>
+<details><summary> A user types a URL into their browser and hits enter to send a request</summary><p><blockquote>Step 1</blockquote></p></details>
+<details><summary> The controller action sends the list of data over to the view</summary><p><blockquote>Step 5</blockquote></p></details>
+<details><summary> The view uses the list of data to render the page as HTML</summary><p><blockquote>Step 6</blockquote></p></details>
+<details><summary> The controller returns the HTML back to the browser</summary><p><blockquote>Step 7</blockquote></p></details>
+<details><summary> The models sends the requested list of data to back to the controller action</summary><p><blockquote>Step 4</blockquote></p></details>
 
 
 ### Which of the following statements are TRUE regarding making a request to a server using cURL vs. visiting the same URL with a browser?
