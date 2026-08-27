@@ -18,6 +18,41 @@ You will need to know how to open a _terminal_ or _shell_ window in your computi
 
 In the beginning was the command line, and that's where we'll be for this intro to HTTP.  We will use two command-line tools. [cURL](https://en.wikipedia.org/wiki/CURL) (pronounced "curl") to act as a SaaS client, and [netcat](https://en.wikipedia.org/wiki/Netcat) (pronounced "netcat") to act as a SaaS server.
 
+### Getting a shell with `curl` and `nc`
+
+You need a shell environment where both `curl` and `nc` are available. There
+are four supported ways to get one; see [DEVELOPING.md](DEVELOPING.md) for
+detailed instructions on each:
+
+1. **Local development.** `curl` and `nc` are preinstalled on macOS and most
+   Linux distributions (on Windows, use [WSL2](https://learn.microsoft.com/en-us/windows/wsl/)
+   or one of the options below). Verify with `curl --version` and `nc -h`.
+
+2. **Local development with Docker.** The provided `Dockerfile` builds an
+   image that includes both tools. From the root of your clone of this repo:
+
+   ```sh
+   docker build -t hw-http-intro .
+   docker run -it --rm --name http-intro hw-http-intro
+   ```
+
+   Later parts of this assignment need **two** shell windows at once (one
+   acting as the server, one as the client). To open a second shell in the
+   *same running container*, run this in another terminal window:
+
+   ```sh
+   docker exec -it http-intro bash
+   ```
+
+3. **Codio.** If your course uses Codio, open the assignment from your Codio
+   course page — both tools are preinstalled. Open terminals via
+   **Tools → Terminal**.
+
+4. **GitHub Codespaces.** From your copy of the repo on GitHub, choose
+   **Code → Codespaces → Create codespace** to get a browser-based VS Code
+   environment built from the same `Dockerfile`. Open as many terminals as
+   you need (**Terminal → New Terminal**) — they all share the same machine.
+
 We will also be working with two real web sites: a
 [random-word generator](http://randomword.saasbook.info) that will also be featured in a future assignment, and
 a simple [cookie demo site](https://github.com/saasbook/simple-cookie-demo)

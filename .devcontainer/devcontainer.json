@@ -1,0 +1,25 @@
+{
+  // Shared dev container configuration for ESaaS CHIPs, used by GitHub
+  // Codespaces and the VS Code "Dev Containers" extension. This file is
+  // copied into each participating chip's generated starter repo as
+  // .devcontainer/devcontainer.json (see the chip's build_starter_code.json).
+  //
+  // It builds the Dockerfile at the root of the starter repo, so each chip
+  // controls its own toolchain while sharing this editor/bootstrap config.
+  "name": "ESaaS CHIP",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp",
+        "KoichiSasada.vscode-rdbg"
+      ]
+    }
+  },
+  // Chips differ in what they ship: only install gems when there is a
+  // Gemfile, and only fix up the spec-runner helper when it is present.
+  "postCreateCommand": "if [ -f run_specs.sh ]; then chmod +x run_specs.sh; fi; if [ -f Gemfile ]; then bundle install; fi"
+}
