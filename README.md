@@ -182,7 +182,7 @@ This app only supports two routes:
 
 * `GET /login` returns a response that instructs the browser to set a cookie.  The cookie contents are set by the app to  indicate the user has logged in.  (In a real app, the server would run some code that verifies a username/password pair or similar.)
 
-This app lives at `http://esaas-cookie-demo.herokuapp.com` but it only serves up text strings, not HTML pages.  Boring, but great for use with `curl`.
+This app lives at `https://simple-cookie-demo-btbo.onrender.com` but it only serves up text strings, not HTML pages.  Boring, but great for use with `curl`.
 
 
 <details><summary>Try the first two <code>GET</code> operations above.  The body of the response for the first one should be "Logged in: false", and for the second one "Login cookie set."  What are the differences in the response <i>headers</i> that indicate the second operation is setting a cookie? (Hint: use <code>curl -v</code>, which will display both the request headers and the response headers and body, along with other debugging information.  <code>curl --help</code> will print voluminous help for using cURL, and <code>man curl</code> will show the Unix "manual page" for cURL on most systems.)  </summary><p><blockquote> The second operation should include in the headers <code>Set-Cookie:</code> followed by a string that is the value of the cookie to be set.  A browser would automatically grab this value and store it as one of the cookies to be sent whenever this site is re-revisisted.  (But heads up/spoiler alert: we're not using  a browser but just a simple command-line utility that issues independent HTTP requests...) </blockquote></p></details>
@@ -193,11 +193,11 @@ and look at the client request headers.) </summary><p><blockquote> The server tr
 
 To fix this, we have to tell `curl` to store any relevant cookies the server sends, so it knows to include them with future requests to that server.
 
-Try `curl -i --cookie-jar cookies.txt http://esaas-cookie-demo.herokuapp.com/login` and verify that the newly created file `cookies.txt` contains information about the cookie that matches the `Set-Cookie` header from the server.  This file is how `curl` stores cookie information; browsers may do it differently.
+Try `curl -i --cookie-jar cookies.txt https://simple-cookie-demo-btbo.onrender.com/login` and verify that the newly created file `cookies.txt` contains information about the cookie that matches the `Set-Cookie` header from the server.  This file is how `curl` stores cookie information; browsers may do it differently.
 
 Now we must tell `curl` to include any appropriate cookies from this file when visiting the site, which we do with the `-b` option:
 
-`curl -v -b cookies.txt http://esaas-cookie-demo.herokuapp.com/`
+`curl -v -b cookies.txt https://simple-cookie-demo-btbo.onrender.com/`
 
 Verify that the cookie is now transmitted (hint: look at the client request headers) and the server now thinks you are logged in.
 
