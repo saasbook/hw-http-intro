@@ -9,7 +9,7 @@
 # starter-code/, which is what build_starter_code.json copies to the root of
 # the generated starter repo -- the build context the COPY below is relative
 # to.
-FROM ruby:3.3.8
+FROM ruby:3.3.13
 
 # curl and nc are the two tools this assignment is built around -- install
 # them explicitly rather than relying on the base image to provide them.
